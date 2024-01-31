@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import Dotenv from "dotenv";
+import mongoose from "mongoose";
 import dbConnect from "./db/db.js";
 import path from "path";
 import { fileURLToPath } from "url"; // Import fileURLToPath function
