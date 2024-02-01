@@ -5,19 +5,16 @@ import Dotenv from "dotenv";
 import mongoose from "mongoose";
 import dbConnect from "./db/db.js";
 import path from "path";
-import { fileURLToPath } from "url"; // Import fileURLToPath function
+import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url); // Get the current module's file path
-const __dirname = path.dirname(__filename); // Derive the directory path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 Dotenv.config();
 
 app.use(bodyParser.json());
-
 app.use(cors());
-
-// Routes
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
@@ -29,11 +26,14 @@ app.use("/api", userRoutes);
 app.use("/api", questionRoutes);
 app.use("/api", quizRoutes);
 
-app.use(express.static(path.join(__dirname, "./frontend/build")));
+// Serve static files with an absolute path
+app.use(express.static(path.resolve(__dirname, "frontend/build")));
 
+// Catch-all route
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./frontend/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "frontend/build", "index.html"));
 });
+
 mongoose.set("strictQuery", false);
 
 dbConnect();
