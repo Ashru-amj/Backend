@@ -35,7 +35,7 @@ const shareQuizLink = async (req, res) => {
     }
 
     // Generate a unique link or code for sharing
-    const shareLink = `https://magical-eclair-bcbda4.netlify.app/quiz/${quizId}`;
+    const shareLink = `https://vermillion-dragon-44dee3.netlify.app/quiz/${quizId}`;
 
     res.status(200).json({ shareLink });
   } catch (error) {
