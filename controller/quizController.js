@@ -35,7 +35,7 @@ const shareQuizLink = async (req, res) => {
     }
 
     // Generate a unique link or code for sharing
-    const shareLink = `http://localhost:${process.env.PORT}/quiz/${quizId}`;
+    const shareLink = `https://magical-eclair-bcbda4.netlify.app/quiz/${quizId}`;
 
     res.status(200).json({ shareLink });
   } catch (error) {
