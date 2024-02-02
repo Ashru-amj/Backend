@@ -36,7 +36,7 @@ const shareQuizLink = async (req, res) => {
 
     // Generate a unique link or code for sharing
     //const shareLink = `http://localhost:${process.env.PORT}/quiz/${quizId}`;
-    const shareLink = `https://frontened-six.vercel.app/quiz/${quizId}`;
+    const shareLink = `https://quizzie-mu.vercel.app/quiz/${quizId}`;
 
     res.status(200).json({ shareLink });
   } catch (error) {
