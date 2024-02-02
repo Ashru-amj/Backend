@@ -27,11 +27,11 @@ app.use("/api", questionRoutes);
 app.use("/api", quizRoutes);
 
 // Serve static files with an absolute path
-app.use(express.static(path.resolve(__dirname, "frontend/build")));
+app.use(express.static(path.resolve(__dirname, "./path_file/build")));
 
 // Catch-all route
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "frontend/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "./path_file/build", "index.html"));
 });
 
 mongoose.set("strictQuery", false);
